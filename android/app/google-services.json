@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "237426452124",
+    "project_id": "bayad-66764",
+    "storage_bucket": "bayad-66764.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:237426452124:android:798c144c36f175a7cf2f59",
+        "android_client_info": {
+          "package_name": "com.example.bayad"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAJ8HvGjke5MzZPvkOvppBLBlBQuSgYLU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

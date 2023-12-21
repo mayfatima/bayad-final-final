@@ -3,37 +3,53 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:bayad/components/my_textfield.dart';
 
-//login page
-class Home extends StatefulWidget{
+
+class RegisterPage extends StatefulWidget{
   final Function()? onTap;
-  const Home({super.key, required this.onTap});
+  const RegisterPage({super.key, required this.onTap});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _HomeState extends State<Home> {
+class _RegisterPageState extends State<RegisterPage> {
   //text editing controllers
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
 
-void signInUser() async {
-  // show loading circle
-  showDialog(
-    context: context,
-    builder: (context) {
-      return const Center(
-        child: CircularProgressIndicator(),
+
+void signUpUser() async {
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const Center(
+          child: CircularProgressIndicator(),
       );
     },
   );
 
+  //try creating a user 
+
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+      //check if password is confirmed
+      if (passwordController.text == confirmPasswordController.text){
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailController.text, 
         password: passwordController.text,
         );
+        }
+        //show error message if password doesnt match
+        else{
+        const AlertDialog(
+          title: Center(
+            child: Text(
+              'Password dont match')),
+          );
+          
+        }
         
         //loading pop up 
         Navigator.pop(context);
@@ -111,25 +127,24 @@ void wrongEmailMessage(){
                    hintText: 'Password',
                    obscureText: true,
                 ),
+
+                const SizedBox(height:10),
+                //confirm password field
+      
+                MyTextField(
+                  controller: confirmPasswordController,
+                   hintText: 'Confirm Password',
+                   obscureText: true,
+                ),
+      
       
                 const SizedBox(height:10),
-                //forgot password
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Forgot Password?',
-                        style: TextStyle(color: Colors.grey[600]),
-                        ),
-                    ],
-                  ),
-                ),
+
+                //sign up button
                 const SizedBox(height:10),
                 MyButton(
-                  text: "Sign in",
-                  onTap: signInUser,),
+                  text:"Sign Up",
+                  onTap: signUpUser),
                 
                 const SizedBox(height:15),
       
@@ -140,7 +155,7 @@ void wrongEmailMessage(){
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        "Don't have an account? ",
+                        "Already have an account? ",
                         style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                         ),
                       GestureDetector(

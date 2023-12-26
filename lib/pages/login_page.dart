@@ -14,7 +14,7 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: const Color.fromARGB(255, 192, 58, 58),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -89,7 +89,7 @@ class LoginPage extends StatelessWidget {
                                               padding: const EdgeInsets.all(8.0),
                                               child: Column(
                                                 children: [
-                                                  Image.asset("lib/assets/bpi.ico"),
+                                                  Image.asset("lib/assets/landbank2.ico"),
                                                 ],
                                               )
                                           ),
@@ -164,134 +164,134 @@ class LoginPage extends StatelessWidget {
                             ),
                           )
                       ),
-                      Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Center(
-                            child: Wrap(
-                                spacing: 20.0,
-                                runSpacing: 20.0,
-                                children: [
-                                  SizedBox(
-                                    width: 160.0,
-                                    height: 160.0,
-                                    child: Card(
-                                        color: const Color.fromARGB(255, 21, 21, 21),
-                                        elevation: 2.0,
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(8.0)
-                                        ),
-                                        child:  Center(
-                                          child: Padding(
-                                              padding: const EdgeInsets.all(8.0),
-                                              child: Column(
-                                                children: [
-                                                  Image.asset("lib/assets/bpi.ico"),
-                                                ],
-                                              )
-                                          ),
-                                        )
-                                    ),
-                                  )
-                                ]
-                            ),
-                          )
-                      ),
-                      Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Center(
-                            child: Wrap(
-                                spacing: 20.0,
-                                runSpacing: 20.0,
-                                children: [
-                                  SizedBox(
-                                    width: 160.0,
-                                    height: 160.0,
-                                    child: Card(
-                                        color: const Color.fromARGB(255, 21, 21, 21),
-                                        elevation: 2.0,
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(8.0)
-                                        ),
-                                        child:  Center(
-                                          child: Padding(
-                                              padding: const EdgeInsets.all(8.0),
-                                              child: Column(
-                                                children: [
-                                                  Image.asset("lib/assets/bpi.ico"),
-                                                ],
-                                              )
-                                          ),
-                                        )
-                                    ),
-                                  )
-                                ]
-                            ),
-                          )
-                      ),
-                      Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Center(
-                            child: Wrap(
-                                spacing: 20.0,
-                                runSpacing: 20.0,
-                                children: [
-                                  SizedBox(
-                                    width: 160.0,
-                                    height: 160.0,
-                                    child: Card(
-                                        color: const Color.fromARGB(255, 21, 21, 21),
-                                        elevation: 2.0,
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(8.0)
-                                        ),
-                                        child:  Center(
-                                          child: Padding(
-                                              padding: const EdgeInsets.all(8.0),
-                                              child: Column(
-                                                children: [
-                                                  Image.asset("lib/assets/bpi.ico"),
-                                                ],
-                                              )
-                                          ),
-                                        )
-                                    ),
-                                  )
-                                ]
-                            ),
-                          )
-                      ),
-                      Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Center(
-                            child: Wrap(
-                                spacing: 20.0,
-                                runSpacing: 20.0,
-                                children: [
-                                  SizedBox(
-                                    width: 160.0,
-                                    height: 160.0,
-                                    child: Card(
-                                        color: const Color.fromARGB(255, 21, 21, 21),
-                                        elevation: 2.0,
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(8.0)
-                                        ),
-                                        child:  Center(
-                                          child: Padding(
-                                              padding: const EdgeInsets.all(8.0),
-                                              child: Column(
-                                                children: [
-                                                  Image.asset("lib/assets/bpi.ico"),
-                                                ],
-                                              )
-                                          ),
-                                        )
-                                    ),
-                                  )
-                                ]
-                            ),
-                          )
-                      ),
+                      // Padding(
+                      //     padding: const EdgeInsets.all(12.0),
+                      //     child: Center(
+                      //       child: Wrap(
+                      //           spacing: 20.0,
+                      //           runSpacing: 20.0,
+                      //           children: [
+                      //             SizedBox(
+                      //               width: 160.0,
+                      //               height: 160.0,
+                      //               child: Card(
+                      //                   color: const Color.fromARGB(255, 21, 21, 21),
+                      //                   elevation: 2.0,
+                      //                   shape: RoundedRectangleBorder(
+                      //                       borderRadius: BorderRadius.circular(8.0)
+                      //                   ),
+                      //                   child:  Center(
+                      //                     child: Padding(
+                      //                         padding: const EdgeInsets.all(8.0),
+                      //                         child: Column(
+                      //                           children: [
+                      //                             Image.asset("lib/assets/bpi.ico"),
+                      //                           ],
+                      //                         )
+                      //                     ),
+                      //                   )
+                      //               ),
+                      //             )
+                      //           ]
+                      //       ),
+                      //     )
+                      // ),
+                      // Padding(
+                      //     padding: const EdgeInsets.all(12.0),
+                      //     child: Center(
+                      //       child: Wrap(
+                      //           spacing: 20.0,
+                      //           runSpacing: 20.0,
+                      //           children: [
+                      //             SizedBox(
+                      //               width: 160.0,
+                      //               height: 160.0,
+                      //               child: Card(
+                      //                   color: const Color.fromARGB(255, 21, 21, 21),
+                      //                   elevation: 2.0,
+                      //                   shape: RoundedRectangleBorder(
+                      //                       borderRadius: BorderRadius.circular(8.0)
+                      //                   ),
+                      //                   child:  Center(
+                      //                     child: Padding(
+                      //                         padding: const EdgeInsets.all(8.0),
+                      //                         child: Column(
+                      //                           children: [
+                      //                             Image.asset("lib/assets/bpi.ico"),
+                      //                           ],
+                      //                         )
+                      //                     ),
+                      //                   )
+                      //               ),
+                      //             )
+                      //           ]
+                      //       ),
+                      //     )
+                      // ),
+                      // Padding(
+                      //     padding: const EdgeInsets.all(12.0),
+                      //     child: Center(
+                      //       child: Wrap(
+                      //           spacing: 20.0,
+                      //           runSpacing: 20.0,
+                      //           children: [
+                      //             SizedBox(
+                      //               width: 160.0,
+                      //               height: 160.0,
+                      //               child: Card(
+                      //                   color: const Color.fromARGB(255, 21, 21, 21),
+                      //                   elevation: 2.0,
+                      //                   shape: RoundedRectangleBorder(
+                      //                       borderRadius: BorderRadius.circular(8.0)
+                      //                   ),
+                      //                   child:  Center(
+                      //                     child: Padding(
+                      //                         padding: const EdgeInsets.all(8.0),
+                      //                         child: Column(
+                      //                           children: [
+                      //                             Image.asset("lib/assets/bpi.ico"),
+                      //                           ],
+                      //                         )
+                      //                     ),
+                      //                   )
+                      //               ),
+                      //             )
+                      //           ]
+                      //       ),
+                      //     )
+                      // ),
+                      // Padding(
+                      //     padding: const EdgeInsets.all(12.0),
+                      //     child: Center(
+                      //       child: Wrap(
+                      //           spacing: 20.0,
+                      //           runSpacing: 20.0,
+                      //           children: [
+                      //             SizedBox(
+                      //               width: 160.0,
+                      //               height: 160.0,
+                      //               child: Card(
+                      //                   color: const Color.fromARGB(255, 21, 21, 21),
+                      //                   elevation: 2.0,
+                      //                   shape: RoundedRectangleBorder(
+                      //                       borderRadius: BorderRadius.circular(8.0)
+                      //                   ),
+                      //                   child:  Center(
+                      //                     child: Padding(
+                      //                         padding: const EdgeInsets.all(8.0),
+                      //                         child: Column(
+                      //                           children: [
+                      //                             Image.asset("lib/assets/bpi.ico"),
+                      //                           ],
+                      //                         )
+                      //                     ),
+                      //                   )
+                      //               ),
+                      //             )
+                      //           ]
+                      //       ),
+                      //     )
+                      // ),
 
                     ]
                     ),

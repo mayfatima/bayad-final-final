@@ -1,5 +1,13 @@
+import 'package:bayad/pages/bdo_lender_page.dart';
 import 'package:bayad/pages/bookmarks_page.dart';
+import 'package:bayad/pages/bpi_lender_page.dart';
+import 'package:bayad/pages/chinabank_lender_page.dart';
+import 'package:bayad/pages/landbank_lender_page.dart';
 import 'package:bayad/pages/profile_page.dart';
+import 'package:bayad/pages/psbank_lender_page.dart';
+import 'package:bayad/pages/rcbc_lender_page.dart';
+import 'package:bayad/pages/securitybank_lender_page.dart';
+import 'package:bayad/pages/unionbank_lender_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -11,294 +19,254 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+  return Scaffold(
+    backgroundColor: const Color.fromARGB(255, 243, 223, 206),
+    appBar: AppBar(
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-      appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 192, 58, 58),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            IconButton(onPressed: (){
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          IconButton(
+            onPressed: () {
               showSearch(
                 context: context,
                 delegate: CustomSearchDelegate(),
-                );
-                },
-                icon: const Icon(Icons.search),
-                ),
-                const Text('Banks'
-                ),
-                ]
-                ),
-                ),
-                drawer: NavigationDrawer(),
-                body: SafeArea(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Center(
-                          child: Wrap(
-                            spacing: 20.0,
-                            runSpacing: 20.0,
-                            children: [
-                              SizedBox(
-                                width: 160.0,
-                                height: 160.0,
-                                child: Card(
-                                  color: const Color.fromARGB(255, 21, 21, 21),
-                                  elevation: 2.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8.0)
-                                  ),
-                                  child:  Center(
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Column(
-                                        children: [
-                                          Image.asset("lib/assets/bpi.ico"),
-                                        ],
-                                      )
-                                    ),
-                                  )
-                                ),
-                              )
-                            ]
-                          ),
-                        )
-                        ),
-                      Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Center(
-                            child: Wrap(
-                                spacing: 20.0,
-                                runSpacing: 20.0,
-                                children: [
-                                  SizedBox(
-                                    width: 160.0,
-                                    height: 160.0,
-                                    child: Card(
-                                        color: const Color.fromARGB(255, 21, 21, 21),
-                                        elevation: 2.0,
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(8.0)
-                                        ),
-                                        child:  Center(
-                                          child: Padding(
-                                              padding: const EdgeInsets.all(8.0),
-                                              child: Column(
-                                                children: [
-                                                  Image.asset("lib/assets/landbank2.ico"),
-                                                ],
-                                              )
-                                          ),
-                                        )
-                                    ),
-                                  )
-                                ]
-                            ),
-                          )
-                      ),
-                      Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Center(
-                            child: Wrap(
-                                spacing: 20.0,
-                                runSpacing: 20.0,
-                                children: [
-                                  SizedBox(
-                                    width: 160.0,
-                                    height: 160.0,
-                                    child: Card(
-                                        color: const Color.fromARGB(255, 21, 21, 21),
-                                        elevation: 2.0,
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(8.0)
-                                        ),
-                                        child:  Center(
-                                          child: Padding(
-                                              padding: const EdgeInsets.all(8.0),
-                                              child: Column(
-                                                children: [
-                                                  Image.asset("lib/assets/bpi.ico"),
-                                                ],
-                                              )
-                                          ),
-                                        )
-                                    ),
-                                  )
-                                ]
-                            ),
-                          )
-                      ),
-                      Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Center(
-                            child: Wrap(
-                                spacing: 20.0,
-                                runSpacing: 20.0,
-                                children: [
-                                  SizedBox(
-                                    width: 160.0,
-                                    height: 160.0,
-                                    child: Card(
-                                        color: const Color.fromARGB(255, 21, 21, 21),
-                                        elevation: 2.0,
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(8.0)
-                                        ),
-                                        child:  Center(
-                                          child: Padding(
-                                              padding: const EdgeInsets.all(8.0),
-                                              child: Column(
-                                                children: [
-                                                  Image.asset("lib/assets/bpi.ico"),
-                                                ],
-                                              )
-                                          ),
-                                        )
-                                    ),
-                                  )
-                                ]
-                            ),
-                          )
-                      ),
-                      // Padding(
-                      //     padding: const EdgeInsets.all(12.0),
-                      //     child: Center(
-                      //       child: Wrap(
-                      //           spacing: 20.0,
-                      //           runSpacing: 20.0,
-                      //           children: [
-                      //             SizedBox(
-                      //               width: 160.0,
-                      //               height: 160.0,
-                      //               child: Card(
-                      //                   color: const Color.fromARGB(255, 21, 21, 21),
-                      //                   elevation: 2.0,
-                      //                   shape: RoundedRectangleBorder(
-                      //                       borderRadius: BorderRadius.circular(8.0)
-                      //                   ),
-                      //                   child:  Center(
-                      //                     child: Padding(
-                      //                         padding: const EdgeInsets.all(8.0),
-                      //                         child: Column(
-                      //                           children: [
-                      //                             Image.asset("lib/assets/bpi.ico"),
-                      //                           ],
-                      //                         )
-                      //                     ),
-                      //                   )
-                      //               ),
-                      //             )
-                      //           ]
-                      //       ),
-                      //     )
-                      // ),
-                      // Padding(
-                      //     padding: const EdgeInsets.all(12.0),
-                      //     child: Center(
-                      //       child: Wrap(
-                      //           spacing: 20.0,
-                      //           runSpacing: 20.0,
-                      //           children: [
-                      //             SizedBox(
-                      //               width: 160.0,
-                      //               height: 160.0,
-                      //               child: Card(
-                      //                   color: const Color.fromARGB(255, 21, 21, 21),
-                      //                   elevation: 2.0,
-                      //                   shape: RoundedRectangleBorder(
-                      //                       borderRadius: BorderRadius.circular(8.0)
-                      //                   ),
-                      //                   child:  Center(
-                      //                     child: Padding(
-                      //                         padding: const EdgeInsets.all(8.0),
-                      //                         child: Column(
-                      //                           children: [
-                      //                             Image.asset("lib/assets/bpi.ico"),
-                      //                           ],
-                      //                         )
-                      //                     ),
-                      //                   )
-                      //               ),
-                      //             )
-                      //           ]
-                      //       ),
-                      //     )
-                      // ),
-                      // Padding(
-                      //     padding: const EdgeInsets.all(12.0),
-                      //     child: Center(
-                      //       child: Wrap(
-                      //           spacing: 20.0,
-                      //           runSpacing: 20.0,
-                      //           children: [
-                      //             SizedBox(
-                      //               width: 160.0,
-                      //               height: 160.0,
-                      //               child: Card(
-                      //                   color: const Color.fromARGB(255, 21, 21, 21),
-                      //                   elevation: 2.0,
-                      //                   shape: RoundedRectangleBorder(
-                      //                       borderRadius: BorderRadius.circular(8.0)
-                      //                   ),
-                      //                   child:  Center(
-                      //                     child: Padding(
-                      //                         padding: const EdgeInsets.all(8.0),
-                      //                         child: Column(
-                      //                           children: [
-                      //                             Image.asset("lib/assets/bpi.ico"),
-                      //                           ],
-                      //                         )
-                      //                     ),
-                      //                   )
-                      //               ),
-                      //             )
-                      //           ]
-                      //       ),
-                      //     )
-                      // ),
-                      // Padding(
-                      //     padding: const EdgeInsets.all(12.0),
-                      //     child: Center(
-                      //       child: Wrap(
-                      //           spacing: 20.0,
-                      //           runSpacing: 20.0,
-                      //           children: [
-                      //             SizedBox(
-                      //               width: 160.0,
-                      //               height: 160.0,
-                      //               child: Card(
-                      //                   color: const Color.fromARGB(255, 21, 21, 21),
-                      //                   elevation: 2.0,
-                      //                   shape: RoundedRectangleBorder(
-                      //                       borderRadius: BorderRadius.circular(8.0)
-                      //                   ),
-                      //                   child:  Center(
-                      //                     child: Padding(
-                      //                         padding: const EdgeInsets.all(8.0),
-                      //                         child: Column(
-                      //                           children: [
-                      //                             Image.asset("lib/assets/bpi.ico"),
-                      //                           ],
-                      //                         )
-                      //                     ),
-                      //                   )
-                      //               ),
-                      //             )
-                      //           ]
-                      //       ),
-                      //     )
-                      // ),
+              );
+            },
+            icon: const Icon(Icons.search),
+          ),
+          const Text('Banks'),
+        ],
+      ),
+    ),
+    drawer: NavigationDrawer(),
+    body: SafeArea(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Wrap(
+              spacing: 15.0,
+              runSpacing: 15.0,
+              children: [
 
-                    ]
+                //bpi
+                SizedBox(
+                  width: 160.0,
+                  height: 160.0,
+                  child: GestureDetector(
+                    onTap: () => Navigator.push(
+                      context, 
+                      MaterialPageRoute(
+                        builder: (context) => const BPILenderPage())
                     ),
-)
-    );
-  }
+                  child: Card(
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    elevation: 2.0,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          Image.asset("lib/assets/bpi.ico"),
+                        ],
+                      ),
+                    ),
+                  ),
+                )),
 
+                //landbank
+                SizedBox(
+                  width: 160.0,
+                  height: 160.0,
+                  child: GestureDetector(
+                    onTap: () => Navigator.push(
+                      context, 
+                      MaterialPageRoute(
+                        builder: (context) => const LandBankLenderPage())
+                    ),
+                  child: Card(
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    elevation: 2.0,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          Image.asset("lib/assets/landbank2.ico"),
+                        ],
+                      ),
+                    ),
+                  ),
+                )),
+
+                //unionbank
+                SizedBox(
+                  width: 160.0,
+                  height: 160.0,
+                  child: GestureDetector(
+                    onTap: () => Navigator.push(
+                      context, 
+                      MaterialPageRoute(
+                        builder: (context) => const UnionBankLenderPage())
+                    ),
+                  
+                  child: Card(
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    elevation: 2.0,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          Image.asset("lib/assets/unionbank1.ico"),
+                        ],
+                      ),
+                    ),
+                  ),
+                )),
+
+                //bdo
+                SizedBox(
+                  width: 160.0,
+                  height: 160.0,
+                  child: GestureDetector(
+                    onTap: () => Navigator.push(
+                      context, 
+                      MaterialPageRoute(
+                        builder: (context) => const BDOLenderPage())
+                    ),
+                  child: Card(
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    elevation: 2.0,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          Image.asset("lib/assets/bdo.ico"),
+                        ],
+                      ),
+                    ),
+                  ),
+                )),
+
+                //security bank
+                SizedBox(
+                  width: 160.0,
+                  height: 160.0,
+                  child: GestureDetector(
+                    onTap: () => Navigator.push(
+                      context, 
+                      MaterialPageRoute(
+                        builder: (context) => const SecurityBankLenderPage())
+                    ),
+                    child: Card(
+                      color: const Color.fromARGB(255, 255, 255, 255),
+                      elevation: 2.0,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            Image.asset("lib/assets/security bank.ico"),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+
+                //rcbc
+                SizedBox(
+                  width: 160.0,
+                  height: 160.0,
+                  child: GestureDetector(
+                    onTap: () => Navigator.push(
+                      context, 
+                      MaterialPageRoute(
+                        builder: (context) => const RCBCLenderPage())
+                    ),
+                  child: Card(
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    elevation: 2.0,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          Image.asset("lib/assets/rcbc.ico"),
+                        ],
+                      ),
+                    ),
+                  ),
+                )),
+
+                //chinabank
+
+                SizedBox(
+                  width: 160.0,
+                  height: 160.0,
+                  child: GestureDetector(
+                    onTap: () => Navigator.push(
+                      context, 
+                      MaterialPageRoute(
+                        builder: (context) => const ChinaBankLenderPage())
+                    ),
+                  child: Card(
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    elevation: 2.0,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          Image.asset("lib/assets/chinabank.ico"),
+                        ],
+                      ),
+                    ),
+                  ),
+                )),
+                SizedBox(
+                  width: 160.0,
+                  height: 160.0,
+                  child: GestureDetector(
+                    onTap: () => Navigator.push(
+                      context, 
+                      MaterialPageRoute(
+                        builder: (context) => const PSBankLenderPage())
+                    ),
+                  child: Card(
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    elevation: 2.0,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          Image.asset("lib/assets/psbank.ico"),
+                        ],
+                      ),
+                    ),
+                  ),
+                )),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
 }
 
 class CustomSearchDelegate extends SearchDelegate {
@@ -382,7 +350,7 @@ class NavigationDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: const Color.fromRGBO(243,223,206,1),
+      backgroundColor: const Color.fromARGB(255, 243, 223, 206),
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -416,13 +384,13 @@ class NavigationDrawer extends StatelessWidget {
           children: [
               const CircleAvatar(
               radius: 52,
-              backgroundImage: NetworkImage('https://pbs.twimg.com/media/GBy419oW4AAlJQt?format=jpg&name=medium'),
+              // backgroundImage: NetworkImage('https://pbs.twimg.com/media/GBy419oW4AAlJQt?format=jpg&name=medium'),
             ),
             const SizedBox(
               height:12
             ),
             const Text(
-              'WOOZI',
+              'Set up profile',
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold
@@ -453,7 +421,7 @@ class NavigationDrawer extends StatelessWidget {
             )),
             onTap: () {
               Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) => LoginPage() ));
+                builder: (context) => const LoginPage() ));
             },
           ),
     

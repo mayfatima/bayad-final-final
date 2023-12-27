@@ -7,12 +7,18 @@ class BookmarkPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       drawer: NavigationDrawer(),
+      backgroundColor: const Color.fromARGB(255, 243, 223, 206),
       appBar: AppBar(
-        title: const Text('Bookmarks'),
-      ),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        title: const Row (
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Text('Request'),
+          ],
 
+      ),
+      )
 
     );
   }

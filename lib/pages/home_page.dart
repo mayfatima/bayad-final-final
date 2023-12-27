@@ -146,7 +146,7 @@ void wrongEmailMessage(){
                       GestureDetector(
                         onTap: widget.onTap,
                         child: const Text(
-                          "Sign In",
+                          "Sign Up",
                           style: TextStyle(
                             color: Colors.blue,
                             fontWeight: FontWeight.bold),

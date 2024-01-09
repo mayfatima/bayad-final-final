@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart';
+import 'dart:async';
+
 
 final _formKey = GlobalKey<FormState>();
 
 class CreateTransaction extends StatefulWidget {
-  CreateTransaction({Key? key}) : super(key: key);
+  const CreateTransaction({Key? key}) : super(key: key);
 
   @override
   State<CreateTransaction> createState() => _CreateTransactionState();
@@ -11,6 +15,7 @@ class CreateTransaction extends StatefulWidget {
 
 class _CreateTransactionState extends State<CreateTransaction> {
   TextEditingController _dateController = TextEditingController();
+  String? _pickedImage;
 
   @override
   Widget build(BuildContext context) {
@@ -109,6 +114,9 @@ class _CreateTransactionState extends State<CreateTransaction> {
                 ),
               ),
 
+              ElevatedButton(
+              onPressed: () => _pickImage(context), 
+              child: const Text("")),
 
               ElevatedButton(
                 onPressed: () {
@@ -143,4 +151,18 @@ class _CreateTransactionState extends State<CreateTransaction> {
       });
     }
   }
+  
+  Future<void> _pickImage(BuildContext context) async {
+    final ImagePicker _picker = ImagePicker();
+    final XFile? pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+    
+    if (pickedFile != null){
+    String fileName = basename(pickedFile.path);
+
+    setState(() {
+    _pickedImage = fileName;
+    
+    });
+}
+}
 }

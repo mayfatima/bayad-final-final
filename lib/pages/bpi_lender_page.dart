@@ -20,7 +20,7 @@ class BPILenderPage extends StatelessWidget {
               onPressed: (){
                 Navigator.push(
                   context, MaterialPageRoute(builder: 
-                  (context) => CreateTransaction()),
+                  (context) => const CreateTransaction()),
                 );
               },
               child: const Text('Create Transaction'),

@@ -4,23 +4,20 @@ import 'package:flutter/material.dart';
 class BPILenderPage extends StatelessWidget {
   const BPILenderPage({super.key});
 
-
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      appBar: AppBar(
-        title: const Text('Detail for BPI')),
-      body:
-       Center(
+    return Scaffold(
+      appBar: AppBar(title: const Text('Detail for BPI')),
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-
             TextButton(
-              onPressed: (){
+              onPressed: () {
                 Navigator.push(
-                  context, MaterialPageRoute(builder: 
-                  (context) => const CreateTransaction()),
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const CreateTransaction()),
                 );
               },
               child: const Text('Create Transaction'),

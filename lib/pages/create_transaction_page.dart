@@ -14,6 +14,14 @@ class CreateTransaction extends StatefulWidget {
 
 class _CreateTransactionState extends State<CreateTransaction> {
   final TextEditingController _dateController = TextEditingController();
+  final TextEditingController _otherDateController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _fatherBDayController = TextEditingController();
+  final TextEditingController _emailFatherController = TextEditingController();
+  final TextEditingController _spouseBDayController = TextEditingController();
+  final TextEditingController _amountController = TextEditingController();
+  final TextEditingController _purposeController = TextEditingController();
+
   List<String>? _pickedImages;
   List<String>? _pickedBirthCertificate;
   List<String>? _pickedSelfies;
@@ -92,7 +100,7 @@ class _CreateTransactionState extends State<CreateTransaction> {
                       ),
                     ),
                     readOnly: true,
-                    onTap: () => _selectDate(context),
+                    onTap: () => _selectBirthDate(context),
                   ),
 
                   // Text Field Age
@@ -103,6 +111,10 @@ class _CreateTransactionState extends State<CreateTransaction> {
                       }
                       return null;
                     },
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly
+                    ],
                     decoration: const InputDecoration(
                       labelText: 'Age',
                     ),
@@ -423,6 +435,344 @@ class _CreateTransactionState extends State<CreateTransaction> {
                           labelText: 'Source of income',
                         ),
                       ),
+//Marital Status Dropdown
+DropdownButtonFormField<String>(
+  value: _selectedMaritalStatus,
+  onChanged: (newValue){
+    setState((){
+      _selectedMaritalStatus = newValue!;
+
+    });
+  },
+  items: const ['Single','Married']
+.map<DropdownMenuItem<String>>((String value) => DropdownMenuItem<String>(
+    value: value,
+    child: Text(value),
+  ),
+  ).toList(),
+decoration: const InputDecoration(
+  labelText: 'Marital Status'
+),
+),
+
+if (_selectedMaritalStatus == 'Single')
+Column(
+  crossAxisAlignment: CrossAxisAlignment.start,
+  children: [
+    //single specific form fields can be added
+//Mother's name
+    TextFormField(
+      validator: (value){
+        if (value == null || value.isEmpty){
+          return 'Enter something';
+        }
+        return null;
+      },
+      decoration: const InputDecoration(
+        labelText: "Mother's Name",
+      ),
+    ),
+//Date picker for mothers birthday
+    TextField(
+      controller: _otherDateController,
+      decoration: const InputDecoration(
+        labelText: 'Birthdate',
+        filled: true,
+        prefixIcon: Icon(Icons.calendar_today),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide.none,
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.white),
+        ),
+      ),
+      readOnly: true,
+      onTap: () => _selectDate(context),
+    ),
+//Email text field
+    TextFormField(
+      controller: _emailController,
+      validator: (value){
+        if (value == null || value.isEmpty){
+          return 'Enter your email';
+        } else if (!isValidEmail(value)){
+          return 'Enter a valid email address';
+        }
+        return null;
+      },
+      keyboardType: TextInputType.emailAddress,
+      decoration: const InputDecoration(
+        labelText: 'Email'
+      ),
+    ),
+//Work mother
+    TextFormField(
+      validator: (value){
+        if (value == null || value.isEmpty){
+          return 'Enter something';
+        }
+        return null;
+      },
+      decoration: const InputDecoration(
+        labelText: "Work",
+      ),
+    ),
+//Mother's Age
+    TextFormField(
+      validator: (value){
+        if (value == null || value.isEmpty){
+          return 'Enter something';
+        }
+        return null;
+      },
+      keyboardType: TextInputType.number,
+      inputFormatters: <TextInputFormatter>[
+        FilteringTextInputFormatter.digitsOnly
+      ],
+      decoration: const InputDecoration(
+        labelText: 'Age',
+      )
+    ),
+//Mother's Contact Number
+    TextFormField(
+      validator: (value){
+        if (value == null || value.isEmpty){
+          return 'Enter something';
+        }
+        return null;
+      },
+      keyboardType: TextInputType.number,
+      inputFormatters: <TextInputFormatter>[
+        FilteringTextInputFormatter.digitsOnly
+      ],
+      decoration: const InputDecoration(
+        labelText: 'Contact Number'
+      ),
+    ),
+//Father's name
+    TextFormField(
+      validator: (value){
+        if (value == null || value.isEmpty){
+          return 'Enter something';
+        }
+        return null;
+      },
+      decoration: const InputDecoration(
+        labelText: "Father's Name",
+      ),
+    ),
+//Father birthdate picker
+    TextField(
+      controller: _fatherBDayController,
+      decoration: const InputDecoration(
+        labelText: 'Birthdate',
+        filled: true,
+        prefixIcon: Icon(Icons.calendar_today),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide.none,
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.white),
+        ),
+      ),
+      readOnly: true,
+      onTap: () => _selectBirthday (context),
+    ),
+//Father email address
+    TextFormField(
+      controller: _emailFatherController,
+      validator: (value){
+        if (value == null || value.isEmpty){
+          return 'Enter your email';
+        } else if (!isValidEmail(value)){
+          return 'Enter a valid email address';
+        }
+        return null;
+      },
+      keyboardType: TextInputType.emailAddress,
+      decoration: const InputDecoration(
+        labelText: 'Email'
+      ),
+    ),
+//Father's work
+    TextFormField(
+      validator: (value){
+        if (value == null || value.isEmpty){
+          return 'Enter something';
+        }
+        return null;
+      },
+      decoration: const InputDecoration(
+        labelText: "Work",
+      ),
+    ),
+//Father's Age
+    TextFormField(
+      validator: (value){
+        if (value == null || value.isEmpty){
+          return 'Enter something';
+        }
+        return null;
+      },
+      keyboardType: TextInputType.number,
+      inputFormatters: <TextInputFormatter>[
+        FilteringTextInputFormatter.digitsOnly
+      ],
+      decoration: const InputDecoration(
+        labelText: 'Age',
+      )
+    ),
+//Father's Contact Number
+    TextFormField(
+      validator: (value){
+        if (value == null || value.isEmpty){
+          return 'Enter something';
+        }
+        return null;
+      },
+      keyboardType: TextInputType.number,
+      inputFormatters: <TextInputFormatter>[
+        FilteringTextInputFormatter.digitsOnly
+      ],
+      decoration: const InputDecoration(
+        labelText: 'Contact Number',
+      )
+    ),
+  ],
+)
+
+else if (_selectedMaritalStatus == 'Married')
+Column(
+  crossAxisAlignment: CrossAxisAlignment.start,
+  children: [
+    //Spouse Name
+    TextFormField(
+       validator: (value){
+        if(value == null || value.isEmpty){
+          return 'Enter something';
+        }
+        return null;
+       },
+       decoration: const InputDecoration(
+        labelText: 'Spouse Name'
+       ),
+    ),
+    //Spouse Age
+    TextFormField(
+      validator: (value){
+        if (value == null || value.isEmpty){
+          return 'Enter something';
+        }
+        return null;
+      },
+      keyboardType: TextInputType.number,
+      inputFormatters: <TextInputFormatter>[
+        FilteringTextInputFormatter.digitsOnly
+      ],
+      decoration: const InputDecoration(
+        labelText: 'Age',
+      )
+    ),
+    //Spouse Work
+    TextFormField(
+      validator: (value){
+        if (value == null || value.isEmpty){
+          return 'Enter something';
+        }
+        return null;
+      },
+      decoration: const InputDecoration(
+        labelText: "Work",
+      ),
+    ),
+    //Spouse Birthdate
+    TextField(
+      controller: _spouseBDayController,
+      decoration: const InputDecoration(
+        labelText: 'Birthdate',
+        filled: true,
+        prefixIcon: Icon(Icons.calendar_today),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide.none,
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.white),
+        ),
+      ),
+      readOnly: true,
+      onTap: () => _selectSpouseBday(context),
+    ),
+    //Contact Number
+    TextFormField(
+      validator: (value){
+        if (value == null || value.isEmpty){
+          return 'Enter something';
+        }
+        return null;
+      },
+      keyboardType: TextInputType.number,
+      inputFormatters: <TextInputFormatter>[
+        FilteringTextInputFormatter.digitsOnly
+      ],
+      decoration: const InputDecoration(
+        labelText: 'Contact Number',
+      )
+    ),
+    //Spouse Email Address
+    TextFormField(
+      controller: _emailFatherController,
+      validator: (value){
+        if (value == null || value.isEmpty){
+          return 'Enter your email';
+        } else if (!isValidEmail(value)){
+          return 'Enter a valid email address';
+        }
+        return null;
+      },
+      keyboardType: TextInputType.emailAddress,
+      decoration: const InputDecoration(
+        labelText: 'Email'
+      ),
+    ),
+  ],
+),
+
+TextFormField(
+  controller: _amountController,
+  validator: (value){
+    if (value == null || value.isEmpty){
+      return 'Enter valid amount';
+    }
+    return null;
+  },
+  keyboardType: const TextInputType.numberWithOptions(decimal: true),
+  inputFormatters: [
+    FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}$')),
+  ],
+  decoration: const InputDecoration(
+    labelText: 'Amount',
+  ),
+),
+
+TextFormField(
+  controller: _purposeController,
+  validator: (value){
+    if(value == null || value.isEmpty){
+      return 'Enter the purpose of the loan';
+    }
+    return null;
+  },
+  maxLength: 300,
+  maxLines: 5,
+  decoration: const InputDecoration(
+    labelText: 'Purpose of Loan',
+    counterText: '',
+  ),
+),
+
+
+
+//Submit
                       Center(
                         child: ElevatedButton(
                           onPressed: () {
@@ -448,7 +798,13 @@ class _CreateTransactionState extends State<CreateTransaction> {
     );
   }
 
-  Future<void> _selectDate(BuildContext context) async {
+    bool isValidEmail(String email){
+    final emailRegExp = 
+        RegExp(r'^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+    return emailRegExp.hasMatch(email);
+    }
+
+  Future<void> _selectBirthDate(BuildContext context) async {
     DateTime? _picked = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
@@ -459,6 +815,50 @@ class _CreateTransactionState extends State<CreateTransaction> {
     if (_picked != null) {
       setState(() {
         _dateController.text = _picked.toString().split(" ")[0];
+      });
+    }
+  }
+
+  Future<void> _selectSpouseBday(BuildContext context) async {
+    DateTime? _picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2100),
+    );
+
+    if (_picked != null) {
+      setState(() {
+        _spouseBDayController.text = _picked.toString().split(" ")[0];
+      });
+    }
+  }
+
+  Future<void> _selectDate(BuildContext context) async {
+    DateTime? _picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2100),
+    );
+
+    if(_picked != null){
+      setState(() {
+        _otherDateController.text = _picked.toString().split(" ")[0];
+      });
+    }
+  }
+
+  Future<void> _selectBirthday(BuildContext context) async {
+    DateTime? _picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2100),
+    );
+    if (_picked != null){
+      setState((){
+        _fatherBDayController.text = _picked.toString().split(" ")[0];
       });
     }
   }
